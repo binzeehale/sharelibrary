@@ -1,7 +1,7 @@
 <style type="text/css">
   #baidu-map {
     float: left;
-    width: 740px;
+    width: 660px;
     height:500px;
     border: 1px solid #ddd;
   }
@@ -16,6 +16,10 @@
     border-left:1px solid #ddd;*/
     background-color: #fff;
     z-index: 2;
+  }
+
+  .marker-title a {
+    text-decoration:none;
   }
   .marker-list{
     padding:8px;
@@ -51,7 +55,7 @@
       </li>
     </ul>
     <div class="row-fluid">
-      <div class="marker-list span2">
+      <div class="marker-list span3">
           <ul>
           <?php foreach($marks as $mark):?>
           <li>
@@ -63,7 +67,7 @@
       <div class="marker-title">
          <a href="javascript:slideToggle()">标记列表</a>
       </div>
-      <div id="baidu-map" class="span9"></div>
+      <div id="baidu-map" class="span8"></div>
     </div> 
   </div>
 </div>  
@@ -78,7 +82,7 @@
         
     }else{
         $('.marker-list').show("slide");
-        $('#baidu-map').width(740);
+        $('#baidu-map').width(660);
     }
   }
 
@@ -126,6 +130,7 @@
         '</p>',
         '<p>经度:$lng$</p><p>纬度:$lat$</p>',
       '</div>',
+      '<div style="overflow:auto; height:300px;width:400px">',
       '<table class="table table-hover">',
         '<thead>',
           '<tr>',
@@ -135,7 +140,8 @@
         '<tbody>',
           '$files$',
         '</tbody>',
-      '</table>'
+      '</table>',
+      '</div>'
   ].join('');
 
   function uniqueId(){

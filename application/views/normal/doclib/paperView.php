@@ -22,7 +22,7 @@
 			<?php endforeach;?>
 			<li class="active"><?=$file['name']?></li>
 		</ul>
-		<div id="documentViewer" class="flexpaper_viewer" style="height:600px"></div>
+		<div id="documentViewer" class="flexpaper_viewer"></div>
 	</div>
 </div>
 <link rel="stylesheet" type="text/css" href="<?=base_url("resources/public/flexpaper/css/flexpaper.css")?>" />

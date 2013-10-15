@@ -1,12 +1,7 @@
 <style type="text/css">
   #map-canvas {
-    height: 500px;
-    border: 1px solid #ddd;
-  }
-  
-  #map-canvas {
     float: left;
-    width: 740px;
+    width: 660px;
     height:500px;
     border: 1px solid #ddd;
   }
@@ -20,6 +15,9 @@
     border-left:1px solid #ddd;*/
     background-color: #fff;
     z-index: 2;
+  }
+  .marker-title a {
+    text-decoration:none;
   }
   .marker-list{
     padding:8px;
@@ -55,8 +53,7 @@
     </ul>
 	 
 	<div class="row-fluid">
-      <div class="span2 marker-list" style="">
-          <h4>标记名称</h4>
+      <div class="span3 marker-list">
           <ul>
           <?php foreach($marks as $mark):?>
           <li>
@@ -68,7 +65,7 @@
       <div class="marker-title">
          <a href="javascript:slideToggle()">标记列表</a>
       </div>
-      <div id="map-canvas" class="span9"></div>
+      <div id="map-canvas" class="span8"></div>
     </div>
   </div>
 </div>
@@ -83,7 +80,7 @@ function slideToggle(){
       
   }else{
       $('.marker-list').show("slide");
-      $('#map-canvas').width(740);
+      $('#map-canvas').width(660);
   }
 }
 
@@ -130,6 +127,7 @@ var fileWindowTpl = [
 	'</p>',
 	'<p>经度:$lng$</p><p>纬度:$lat$</p>',
   '</div>',
+  '<div style="overflow:auto; height:300px;width:400px">',
   '<table class="table table-hover">',
 	'<thead>',
 	  '<tr>',
@@ -139,7 +137,8 @@ var fileWindowTpl = [
 	'<tbody>',
 	  '$files$',
 	'</tbody>',
-  '</table>'
+  '</table>',
+  '</div>'
 ].join('');
 
 function uniqueId(){
@@ -206,7 +205,7 @@ function loadMarker(m){
 	marker.infowindow = new google.maps.InfoWindow({ 
 		content: fileWindowHtml,//"<div class='my_marker'><p id='title'>"+title+"</p><p><b>地址:</b>"+ address +"</p><a class='fileDetail' style='text-decoration:none;color:#2679BA;float:right' href='javascript:openFileWindow(\""+title+"\");'>文件列表>></a></div>",
 		//size: new google.maps.Size(150,100)
-		maxWidth: 400
+		maxWidth: 800
 	});
 	
 	google.maps.event.addListener(marker, 'click', function() {
